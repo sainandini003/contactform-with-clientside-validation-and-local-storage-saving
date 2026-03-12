@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submissions</title>
+</head>
+
+<body>
+
+<h2>Form Submissions</h2>
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Message</th>
+</tr>
+
+<tbody id="tableData"></tbody>
+
+</table>
+
+<br>
+<a href="contact.html">Back</a>
+
+<script>
+
+let submissions = JSON.parse(localStorage.getItem("submissions")) || [];
+
+let table = document.getElementById("tableData");
+
+submissions.forEach(function(data){
+
+    let row = `
+    <tr>
+        <td>${data.name}</td>
+        <td>${data.email}</td>
+        <td>${data.message}</td>
+    </tr>
+    `;
+
+    table.innerHTML += row;
+
+});
+
+</script>
+
+</body>
+</html>
